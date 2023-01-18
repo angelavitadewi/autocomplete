@@ -1,5 +1,5 @@
 import './App.css';
-import 'antd/dist/antd.css';
+import 'antd/dist/reset.css';
 import Map from './components/Map';
 
 function App() {

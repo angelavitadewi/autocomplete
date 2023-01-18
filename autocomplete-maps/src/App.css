@@ -21,7 +21,7 @@ a {
   left: 50%;
   transform: translateX(-50%);
   z-index: 10;
-  width: 300px;
+  width: 500px;
 }
 
 .map-container {
@@ -29,7 +29,7 @@ a {
   height: 100vh;
 }
 
-.combobox-input {
+.autocomplete-input {
   width: 100%;
   padding: 0.5rem;
 }

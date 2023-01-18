@@ -3,6 +3,7 @@ import usePlacesAutocomplete, { getGeocode, getLatLng } from 'use-places-autocom
 import { useDispatch } from 'react-redux';
 import { setPosition } from '../redux/PositionAction';
 
+
 function SearchPlaces() {
   const {
     ready,
@@ -17,7 +18,6 @@ function SearchPlaces() {
   const handleChange = async (address) => {
     setValue(address, false);
     clearSuggestions();
-
     const results = await getGeocode({ address });
     const { lat, lng } = await getLatLng(results[0]);
     setPosition(dispatch, lat, lng);
@@ -28,11 +28,13 @@ function SearchPlaces() {
       <AutoComplete
         dataSource={status === 'OK' && data.map((item) => item.description)}
         value={value}
-        onChange={handleChange}
+        onSelect={handleChange}
         onSearch={setValue}
         disabled={!ready}
-        className='combobox-input'
+        className='autocomplete-input'
         placeholder='Search'
+        size='large'
+        allowClear
       />
     </>
   );

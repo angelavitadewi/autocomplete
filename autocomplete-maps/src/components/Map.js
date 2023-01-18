@@ -1,14 +1,19 @@
 import { GoogleMap, useLoadScript, MarkerF } from '@react-google-maps/api';
 import SearchPlaces from './SearchPlaces';
 import { connect } from 'react-redux';
+import { Spin } from 'antd';
+
+// put API keys here
+// enable Geocode, Places and Maps JS API
+const API_KEY = '';
 
 function Map(props) {
   const { isLoaded } = useLoadScript({
-    googleMapsApiKey: '',
+    googleMapsApiKey: API_KEY,
     libraries: ['places'],
   });
 
-  if (!isLoaded) return <div>Loading...</div>;
+  if (!isLoaded) return <Spin tip='Loading...' />;
   const { lat, lng } = props;
   return (
     <>
